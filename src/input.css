@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+    
+    --color-elegantBlack: #333333;
+    
+    /* ... */
+  }
