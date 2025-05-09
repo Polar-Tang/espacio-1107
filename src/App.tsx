@@ -10,17 +10,16 @@ function App() {
       >
 
         {/* Main content */}
-        <div className="z-10 bg-white/40 rounded-lg text-elegantBlack min-h-160">
-          <div className="grid flex grid-cols-[1fr_1fr_500px] h-full">
-            {/*Left side */}
-            <div className="text-elegantBlack flex flex-col justify-between h-full ml-10">
+        <div className="z-10 bg-white/40 rounded-lg text-elegantBlack min-h-160 ">
+          <div className="grid  grid-cols-[1.4fr_1fr_2fr] h-full min-w-full">
+            <div className="text-elegantBlack flex flex-col justify-between min-h-160 ml-10">
               <div >
 
-                <h1 className="font-serif text-3xl md:text-6xl tracking-wider mx-6 md:mt-14 leading-[88px] tracking-[0.054em]">
+                <h1 className="font-serif md:text-[74px] tracking-wider mx-6 md:mt-14 leading-[88px] tracking-[0.054em]">
                   ESPACIO
                 </h1>
                 <div className="mx-6 relative inline-block">
-                  <span className="tracking-[0.667em] leading-[88px] text-6xl">
+                  <span className="tracking-[0.667em] leading-[88px] text-[74px]">
                     1700
                   </span>
                   <CircleSmall className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-full stroke-3 " />
@@ -31,7 +30,8 @@ function App() {
   leading-[31px] 
   tracking-[0.052em] 
   uppercase 
-  list-none'>GENERANDO CIRCUITOS</p>
+  list-none'
+                  >GENERANDO CIRCUITOS</p>
                   <p className='text-[21.4144px] 
   leading-[31px] 
   tracking-[-0.007em] 
@@ -47,8 +47,8 @@ function App() {
                 <Twitter className="stroke-2 w-8 h-8" />
               </div>
             </div>
-            <div className="text-elegantBlack flex flex-col items-center ">
-              <WireDiagram className=" w-full" />
+            <div className="relative text-elegantBlack h-full flex flex-col items-end w-full">
+              <WireDiagram height={440} className="absolute w-full bottom-6" />
             </div>
             {/* Right side - Wire diagram with menu items */}
             <div className="z-20 text-elegantBlack flex flex-col md:h-full w-full justify-start">
@@ -70,16 +70,19 @@ function App() {
 
 function MenuItem({ text }: { text: string; }) {
   return (
-    <div className="relative flex flex-grow items-center w-253"> {/* Full width container */}
+    <div className="relative flex flex-grow items-center"> {/* Full width container */}
     <CircleSmall className=" stroke-3 " />
       <span className='font-medium text-2xl flex-grow tracking-[-0.015em] leading-6'>{text}</span> {/* Text that grows */}
     </div>
   )
 }
 
-function WireDiagram({ className }: { className: string }) {
+function WireDiagram({ className, height }: { className: string, height: number }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox='0 0 224 357' version="1.1" preserveAspectRatio="none">
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox='0 0 224 357' version="1.1" preserveAspectRatio="none"
+      height={height}
+    >
+
       <g><path style={{ opacity: 0.004 }} fill="#fdfdfd" d="M 94.5,-0.5 C 96.1667,-0.5 97.8333,-0.5 99.5,-0.5C 98.948,2.32427 97.2813,4.1576 94.5,5C 94.8333,5.33333 95.1667,5.66667 95.5,6C 93.8333,6.33333 92.1667,6.66667 90.5,7C 91.7112,7.89277 91.7112,8.7261 90.5,9.5C 86.0274,12.6431 82.0274,15.6431 78.5,18.5C 76.9148,21.9131 77.4148,24.9131 80,27.5C 81.2572,34.1448 81.9239,40.8115 82,47.5C 80.2589,44.6907 79.0922,41.6907 78.5,38.5C 78.0074,36.1944 77.6741,33.861 77.5,31.5C 78.4387,30.6726 78.1054,30.0059 76.5,29.5C 76.5,29.1667 76.5,28.8333 76.5,28.5C 76.9382,28.5654 77.2716,28.3988 77.5,28C 76.9341,27.0053 76.2674,26.172 75.5,25.5C 75.4369,20.6971 75.7703,16.1971 76.5,12C 75.3066,10.9054 73.9733,10.072 72.5,9.5C 72.2155,7.58533 72.5489,5.91866 73.5,4.5C 74.8333,4.5 76.1667,4.5 77.5,4.5C 78.8005,5.88159 79.6339,7.54826 80,9.5C 81.6995,8.59391 83.5328,8.26057 85.5,8.5C 85.5,7.5 85.5,6.5 85.5,5.5C 87.1992,5.66018 88.8659,5.49351 90.5,5C 91.6647,3.0083 92.998,1.17496 94.5,-0.5 Z M 74.5,5.5 C 76.7602,6.23764 76.9269,7.23764 75,8.5C 73.2716,7.64767 73.105,6.64767 74.5,5.5 Z" /></g>
       <g><path style={{ opacity: 0.004 }} fill="#fefffe" d="M 162.5,-0.5 C 163.167,-0.5 163.833,-0.5 164.5,-0.5C 163.833,0.833333 163.167,0.833333 162.5,-0.5 Z" /></g>
       <g><path style={{ opacity: 0.004 }} fill="#fefffe" d="M 218.5,-0.5 C 220.167,-0.5 221.833,-0.5 223.5,-0.5C 223.5,1.83333 223.5,4.16667 223.5,6.5C 220.131,5.44083 218.464,3.1075 218.5,-0.5 Z" /></g>
