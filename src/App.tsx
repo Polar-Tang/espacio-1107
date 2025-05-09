@@ -1,51 +1,57 @@
-import { useState } from 'react'
 import { Instagram, Facebook, Twitter, CircleSmall } from "lucide-react"
 import './index.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className='relative flex items-center justify-center overflow-hidden h-dvh w-full bg-[url(https://media.canva.com/v2/image-resize/format:JPG/height:533/quality:92/uri:ifs%3A%2F%2FM%2Fe8d48796-23ff-4d76-9ab1-8765f9ea95f5/watermark:F/width:800?csig=AAAAAAAAAAAAAAAAAAAAAMQs5ZFJfeLrqtotQch0Z_mgV3zkfxSn7e8LJ3yQnThC&exp=1746673137&osig=AAAAAAAAAAAAAAAAAAAAAHSRZaskyB02mwl4UC2YOgsVxr5_0SfmYBYMa-5YEei_&signer=media-rpc&x-canva-quality=screen)] bg-cover bg-norepeat bg-center'>
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/background.jpg')",
-            filter: "brightness(0.6)",
-          }}
-        />
-        {/*Left side */}
-        <div className="relative z-10 bg-white/40  rounded-lg w-full max-w-5xl mx-auto h-120">
-          <div className="grid grid-cols-3 .gap-100 items-center h-120">
-            <div className="text-elegantBlack flex flex-col justify-between h-full">
-              {/* Main content */}
-              <div>
-                <h1 className="font-serif text-3xl md:text-6xl tracking-wider m-4">
+      <div className='flex items-center justify-center overflow-hidden h-dvh w-full bg-[url(/background.webp)]  bg-cover bg-norepeat bg-center'
+      // style={{background: "url('/background.webp')"}}
+      >
+
+        {/* Main content */}
+        <div className="z-10 bg-white/40 rounded-lg text-elegantBlack min-h-160">
+          <div className="grid flex grid-cols-[1fr_1fr_500px] h-full">
+            {/*Left side */}
+            <div className="text-elegantBlack flex flex-col justify-between h-full ml-10">
+              <div >
+
+                <h1 className="font-serif text-3xl md:text-6xl tracking-wider mx-6 md:mt-14 leading-[88px] tracking-[0.054em]">
                   ESPACIO
                 </h1>
-                <span className="md:tracking-[3rem] tracking-[1rem] font-serif text-3xl md:text-6xl m-4">1700</span>
-                <div className=" uppercase tracking-wider">
-                  <p className='font-normal m-4'>GENERANDO CIRCUITOS</p>
-                  <p className='font-normal m-4'>GESTIONANDO RECURSOS</p>
+                <div className="mx-6 relative inline-block">
+                  <span className="tracking-[0.667em] leading-[88px] text-6xl">
+                    1700
+                  </span>
+                  <CircleSmall className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-full stroke-3 " />
+                </div>
+
+                <div className=" uppercase mx-6 tracking-wider  ">
+                  <p className='text-[21.4144px] 
+  leading-[31px] 
+  tracking-[0.052em] 
+  uppercase 
+  list-none'>GENERANDO CIRCUITOS</p>
+                  <p className='text-[21.4144px] 
+  leading-[31px] 
+  tracking-[-0.007em] 
+  uppercase 
+  list-none'>GESTIONANDO RECURSOS</p>
                 </div>
               </div>
 
               {/* Social media icons at bottom */}
-              <div className="flex space-x-6 m-4">
-                <Instagram className="h-6 w-6" />
-                <Facebook className="h-6 w-6" />
-                <Twitter className="h-6 w-6" />
+              <div className="flex space-x-6 mb-12 mx-6">
+                <Instagram className="stroke-2 w-8 h-8" />
+                <Facebook className="stroke-2 w-8 h-8" />
+                <Twitter className="stroke-2 w-8 h-8" />
               </div>
             </div>
-            <div className="text-elegantBlack flex flex-col items-center justify-center">
-              <WireDiagram className="
-              max-h-[80vh] max-w-[40vh]  
-              md:max-w-[30vw] md:max-h-[60vw]          
-              lg:max-w-[25vw] lg:max-h-[50vw]" />
+            <div className="text-elegantBlack flex flex-col items-center ">
+              <WireDiagram className=" w-full" />
             </div>
             {/* Right side - Wire diagram with menu items */}
-            <div className="relative z-20 md:p-10 flex flex-col justify-between md:h-120">
+            <div className="z-20 text-elegantBlack flex flex-col md:h-full w-full justify-start">
               <MenuItem text="Nosotros" />
               <MenuItem text="Misión" />
               <MenuItem text="Visión" />
@@ -64,16 +70,16 @@ function App() {
 
 function MenuItem({ text }: { text: string; }) {
   return (
-    <div className="flex items-center mb-8 ">
-      <CircleSmall className='font-elegantBlack text-l' />
-      <span className='font-light '>{text}</span>
+    <div className="relative flex flex-grow items-center w-253"> {/* Full width container */}
+    <CircleSmall className=" stroke-3 " />
+      <span className='font-medium text-2xl flex-grow tracking-[-0.015em] leading-6'>{text}</span> {/* Text that grows */}
     </div>
   )
 }
 
 function WireDiagram({ className }: { className: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox='0 0 100 200' version="1.1" preserveAspectRatio="none">
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox='0 0 224 357' version="1.1" preserveAspectRatio="none">
       <g><path style={{ opacity: 0.004 }} fill="#fdfdfd" d="M 94.5,-0.5 C 96.1667,-0.5 97.8333,-0.5 99.5,-0.5C 98.948,2.32427 97.2813,4.1576 94.5,5C 94.8333,5.33333 95.1667,5.66667 95.5,6C 93.8333,6.33333 92.1667,6.66667 90.5,7C 91.7112,7.89277 91.7112,8.7261 90.5,9.5C 86.0274,12.6431 82.0274,15.6431 78.5,18.5C 76.9148,21.9131 77.4148,24.9131 80,27.5C 81.2572,34.1448 81.9239,40.8115 82,47.5C 80.2589,44.6907 79.0922,41.6907 78.5,38.5C 78.0074,36.1944 77.6741,33.861 77.5,31.5C 78.4387,30.6726 78.1054,30.0059 76.5,29.5C 76.5,29.1667 76.5,28.8333 76.5,28.5C 76.9382,28.5654 77.2716,28.3988 77.5,28C 76.9341,27.0053 76.2674,26.172 75.5,25.5C 75.4369,20.6971 75.7703,16.1971 76.5,12C 75.3066,10.9054 73.9733,10.072 72.5,9.5C 72.2155,7.58533 72.5489,5.91866 73.5,4.5C 74.8333,4.5 76.1667,4.5 77.5,4.5C 78.8005,5.88159 79.6339,7.54826 80,9.5C 81.6995,8.59391 83.5328,8.26057 85.5,8.5C 85.5,7.5 85.5,6.5 85.5,5.5C 87.1992,5.66018 88.8659,5.49351 90.5,5C 91.6647,3.0083 92.998,1.17496 94.5,-0.5 Z M 74.5,5.5 C 76.7602,6.23764 76.9269,7.23764 75,8.5C 73.2716,7.64767 73.105,6.64767 74.5,5.5 Z" /></g>
       <g><path style={{ opacity: 0.004 }} fill="#fefffe" d="M 162.5,-0.5 C 163.167,-0.5 163.833,-0.5 164.5,-0.5C 163.833,0.833333 163.167,0.833333 162.5,-0.5 Z" /></g>
       <g><path style={{ opacity: 0.004 }} fill="#fefffe" d="M 218.5,-0.5 C 220.167,-0.5 221.833,-0.5 223.5,-0.5C 223.5,1.83333 223.5,4.16667 223.5,6.5C 220.131,5.44083 218.464,3.1075 218.5,-0.5 Z" /></g>
@@ -103,4 +109,22 @@ function WireDiagram({ className }: { className: string }) {
   )
 }
 
+const WireDiagramUl = () => {
+  return (
+    <svg className="Fe_H_Q" style={{ stroke: "rgb(32, 32, 32); fill: rgb(32, 32, 32); width: 380.82px; height: 216.483px;" }}><path d="M99.42962386,2L75.42962386,2C62.174789860000004,2 51.42962386,12.745166000000001 51.42962386,26L51.42962386,50.95090047C51.42962386,64.20573447 40.68445785,74.95090047000001 27.42962386,74.95090047000001L26,74.95090047000001C12.745166000000001,74.95090047000001 2,85.69606647 2,98.95090047000001L2,103.31126514C2,116.56609913 12.745166000000001,127.31126514 26,127.31126514L354.81960114000003,127.31126514C368.07443514,127.31126514 378.81960114000003,138.05643114 378.81960114000003,151.31126514L378.81960114000003,155.4260063C378.81960114000003,168.6808403 368.07443514,179.4260063 354.81960114000003,179.4260063L128.1469476,179.4260063C123.23289185,179.4260063 118.52010303,181.37810735 115.04534088,184.85286949000002C111.57057874,188.32763164 109.61847769,193.04042046 109.61847769,197.95447621L109.61847769,216.48294613000002" stroke-linecap="butt" stroke-width="46.63377609108159" fill="none" pointer-events="auto" opacity="0" className="_682gpw" style={{ touchAction: "pan-x pan-y pinch-zoom;" }}></path><g><path d="M99.42962386,2L75.42962386,2C62.174789860000004,2 51.42962386,12.745166000000001 51.42962386,26L51.42962386,50.95090047C51.42962386,64.20573447 40.68445785,74.95090047000001 27.42962386,74.95090047000001L26,74.95090047000001C12.745166000000001,74.95090047000001 2,85.69606647 2,98.95090047000001L2,103.31126514C2,116.56609913 12.745166000000001,127.31126514 26,127.31126514L354.81960114000003,127.31126514C368.07443514,127.31126514 378.81960114000003,138.05643114 378.81960114000003,151.31126514L378.81960114000003,155.4260063C378.81960114000003,168.6808403 368.07443514,179.4260063 354.81960114000003,179.4260063L128.1469476,179.4260063C123.23289185,179.4260063 118.52010303,181.37810735 115.04534088,184.85286949000002C111.57057874,188.32763164 109.61847769,193.04042046 109.61847769,197.95447621L109.61847769,216.48294613000002" stroke-linecap="butt" stroke-width="4" fill="none" pointer-events="none"></path></g></svg>
+  )
+}
+
+
 export default App
+
+// font-family: "YAFdJs2qTWQ 0", _fb_, auto;
+// --cAuMqQ: 20px;
+// color: rgb(52, 42, 49);
+// line-height: 24px;
+// letter-spacing: -0.015em;
+// --pY_8zA: 0;
+// text-transform: none;
+// --oJepFA: 0;
+// --uYCVzQ: none;
+// list-style-type: none;
