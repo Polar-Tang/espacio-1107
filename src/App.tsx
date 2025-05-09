@@ -1,7 +1,7 @@
 import { Instagram, Facebook, Twitter, CircleSmall } from "lucide-react"
 import './index.css'
 import { WireDiagram } from "./assets/WireDiagram";
-import { WireDiagramUl } from "./assets/WIreDiagramUl";
+// import { WireDiagramUl } from "./assets/WIreDiagramUl";
 
 function App() {
 
